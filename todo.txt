@@ -1,0 +1,19 @@
+todo
+make objects for each module
+make a function to convert a module tino jason
+make a fuction convert from json to module
+make modules flow with animation when added and or deleted
+standardice the sice into squares that each
+
+tanker
+8 eller 16 brei og med hver module likner hverandre
+2 eller 3 høy
+hver modul skal se ut som et vindu inn i det den inneholder.
+avrundedehjørner kan sjule innholdet
+
+
+rutine
+hent data
+tolk data
+lag modul
+skriv modul
