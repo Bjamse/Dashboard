@@ -4,8 +4,9 @@ window.onload = main;
 modules = [];
 
 
-function main(){
-    getData();
+async function main() {
+    let rawJSON = await fetch("./config.json").then(Response => Response.json());
+    console.log(rawJSON);
+    decodeJSON(rawJSON);
 
-    //render();
 }

@@ -1,6 +1,12 @@
-//test data
 
-rawJSONdata = {};
+
+// DEPRECATED!!
+// uses fetch in main.js
+
+
+
+
+/*
 
 function getData(){
     // start å lag en request etter data
@@ -18,4 +24,4 @@ function statusforandring(){
         // skriver ut resultatet på skjermen
          rawJSONdata = JSON.parse(xmlhttp.responseText);
     }
-}
+}*/
