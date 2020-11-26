@@ -1,0 +1,29 @@
+<script>
+    let gtBTC= async ()=>{
+
+        let obj = await fetch("https://api.coindesk.com/v1/bpi/currentprice.json").then(Response => Response.json());
+        document.getElementById("BTC-out").innerText = " $"+ Number(obj.bpi.USD.rate.replace(",","")).toFixed(2).toString();
+    }
+    let getUsdEurGbp= async ()=>{
+        let obj = await fetch("https://data.norges-bank.no/api/data/EXR/B.USD+GBP+EUR.NOK.SP?format=sdmx-new-json&lastNObservations=1&locale=no").then(Response => Response.json());
+
+        document.getElementById("USD-out").innerText = " "+Number(obj.data.dataSets[0].series["0:2:0:0"].observations[0][0]).toFixed(2);
+        document.getElementById("EUR-out").innerText = " "+Number(obj.data.dataSets[0].series["0:0:0:0"].observations[0][0]).toFixed(2);
+        document.getElementById("GBP-out").innerText = " "+Number(obj.data.dataSets[0].series["0:1:0:0"].observations[0][0]).toFixed(2);
+    }
+
+    function getKurser(){
+        gtBTC();
+        getUsdEurGbp();
+    }
+</script>
+<h3>Valutta kurser</h3>
+<p style="font-weight: bold; font-size: 11pt">
+    EUR :<span id="EUR-out" ></span> <br>
+    GBP :<span id="GBP-out" ></span> <br>
+    USD :<span id="USD-out" ></span> <br>
+    BTC :<span id="BTC-out" ></span> <br>
+    <img src="./src/refresh.png" alt="" onclick="getKurser()" style="position: absolute;top: 10%; right: 10%;height: 16px; width: 16px">
+</p>
+
+

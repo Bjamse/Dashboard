@@ -1,0 +1,45 @@
+<script>
+
+    async function getMCserverDATA(){
+        let data = await fetch("https://api.mcsrvstat.us/2/hamood-habibi.xyz").then(Response => Response.json());
+        document.getElementById("serverIcon").src = data.icon;
+        document.getElementById("MC-ip").innerText = data.ip;
+
+        if(data.online){
+            document.getElementById("MC-online").style.color = "green";
+            document.getElementById("MC-online").innerText = "ONLINE";
+        }else{
+            document.getElementById("MC-online").style.color = "red";
+            document.getElementById("MC-online").innerText = "OFFLINE";
+        }
+
+        document.getElementById("MC-players-ONLINE").innerText = data.players.online;
+        let out ="";
+        for (let i in data.players.list){
+            if (out !== ""){
+                out+=",";
+            }
+            out += data.players.list[i];
+        }
+        document.getElementById("MC-players").innerText = out;
+        let d = new Date;
+
+
+        const zeroPad = (num, places) => String(num).padStart(places, '0');
+        
+        document.getElementById("MC-lastup-date").innerText = d.getHours() + ":" + zeroPad(d.getMinutes(),2);
+
+
+    }
+</script>
+<span style="position: absolute; top:10%; right: 30%; " id="MC-lastup-date"></span>
+<img src="" alt="" id="serverIcon">
+<p style="font-size: 11pt">
+    IP: <span id="MC-ip" style="font-weight: bold"></span> <br>
+    Status: <span id="MC-online" style="font-weight: bold"></span> <br>
+    Players: <span id="MC-players-ONLINE" style="font-weight: bold"> </span><br>
+    <span id="MC-players" style="font-weight: bold"> </span><br>
+
+</p>
+
+<img src="./src/refresh.png" alt="" onclick="getMCserverDATA()" style="position: absolute;top: 10%; right: 10%;height: 16px; width: 16px">

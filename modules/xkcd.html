@@ -1,0 +1,12 @@
+<script>
+    async function getxkcd(){
+        let obj = await fetch("https://cors-anywhere.herokuapp.com/https://xkcd.com/info.0.json").then(Response => Response.json());
+        document.getElementById("xkcd-Title").innerText = obj.num + ": "+ obj.safe_title;
+        document.getElementById("xkcd-Comic").src = obj.img;
+        document.getElementById("xkcd-Comic").title = obj.alt;
+    }
+</script>
+<h3 id="xkcd-Title">Load latest XKCD comic here</h3>
+<img id="xkcd-Comic" src="" alt="" style="max-width: 100%; max-height: 90%">
+
+<img src="./src/refresh.png" alt="" onclick="getxkcd()" style="position: absolute;top: 5%; right: 5%;height: 32px; width: 32px">

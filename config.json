@@ -11,7 +11,19 @@
             "id" : "",
             "width" : 1,
             "height" : 1,
-            "content" : "./modules/BTC.html"
+            "content" : "./modules/KURSER.html"
+        },
+        {
+            "id" : "",
+            "width" : 1,
+            "height" : 1,
+            "content" : "./modules/MCserverStat.html"
+        },
+        {
+            "id" : "",
+            "width" : 3,
+            "height" : 3,
+            "content" : "./modules/xkcd.html"
         }
     ]
 
